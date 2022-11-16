@@ -105,6 +105,18 @@ use Bokhandel;
 --Primary Key (ButikID,ISBN13)
 --);
 
+--insert into LagerSaldo
+--(ButikID,ISBN13,Antal, FormID)
+--values
+--(1,'9780099537090',14,1),
+--(1,'9789174130416',9,3),
+--(1,'9789175035505',25,2),
+--(2,'9780099537090',4,1),
+--(2,'9789174130416',19,3),
+--(2,'9789175035505',18,2),
+--(3,'9780099537090',10,1),
+--(3,'9789174130416',2,3),
+--(3,'9789175035505',7,2);
 
 
 --create table Förlag(
@@ -135,6 +147,10 @@ use Bokhandel;
 
 select * from Böcker;
 select * from Författare;
+select * from Butiker;
+select * from Bokform;
+
+
 
 
 
