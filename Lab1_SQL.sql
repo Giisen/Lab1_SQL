@@ -179,7 +179,14 @@ use Bokhandel;
 --(3,'9789137158686',95,4),
 --(3,'9781398518179',19,2),
 --(3,'9781612680194',19,2),
---(3,'9789137152653',4,1);
+--(3,'9789137152653',4,1),
+--(4,'9789127179554',330,1),
+--(4,'9789113122151',341,1),
+--(4,'9789100167127',100,4),
+--(4,'9789137158686',250,4),
+--(4,'9781398518179',136,2),
+--(4,'9781612680194',190,2),
+--(4,'9789137152653',49,1);
 
 
 --create table Ordrar(
@@ -191,13 +198,6 @@ use Bokhandel;
 --ButikID int not null,
 --PersonalID int not null);
 
-
---Alter table Ordrar
---add foreign key (PersonalID) references Personal(PersonalID);
-
-
---Alter table Ordrar
---add foreign key (ButikID) references Butiker(ButikID);
 
 
 --Bulk insert Ordrar
@@ -245,3 +245,10 @@ select * from LagerSaldo;
 
 --alter table Butiker
 --add constraint FK_Butikschef foreign key (Butikschef) references Personal(PersonalID) on delete cascade on update cascade;
+
+--Alter table Ordrar
+--add foreign key (PersonalID) references Personal(PersonalID);
+
+
+--Alter table Ordrar
+--add foreign key (ButikID) references Butiker(ButikID);
