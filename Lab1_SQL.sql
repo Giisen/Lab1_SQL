@@ -202,6 +202,13 @@ use Bokhandel;
 --		ROWTERMINATOR = '\n'
 --);
 
+--select 
+--ISBN13,
+--sum(Styckpris) as sales
+--from Ordrar
+--Group by ISBN13
+--order by  sales desc;
+
 select* from personal
 select * from Ordrar
 select * from Böcker;
