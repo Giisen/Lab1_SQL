@@ -69,6 +69,7 @@ use Bokhandel;
 --);
 
 
+
  --insert into Bokform
  --(Bokform)
  --Values
@@ -89,7 +90,7 @@ use Bokhandel;
 --AntalSidor int,
 --Genre nvarchar(max),
 --constraint FK_FörfattareID foreign key (FörfattareID) references Författare(ID) on delete cascade on update cascade,
---constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade
+----constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade
 --);
 
 
@@ -121,13 +122,25 @@ use Bokhandel;
 --('Grishamn', 'John','19550208'),
 --('Sten', 'Viveca','19590618');
 
-insert into Böcker (ISBN13,Titel,Språk,Pris,Utgivningsdatum,FörfattareID,FormID,AntalSidor,Genre)
-values(
-'9780099537090','The Firm','Engelska',99,'20101028',2,1,496,'Thriller'),
-('9789175035505','I farans riktning','Svenska',69,'20160616',3,2,186,'Roman');
+
+
+--insert into Böcker (ISBN13,Titel,Språk,Pris,Utgivningsdatum,FörfattareID,FormID,AntalSidor,Genre)
+--values
+--('9789174130416','Da Vinci-koden','Svenska',150,'20091001',1,3,0,'Thriller'),
+--('9780099537090','The Firm','Engelska',99,'20101028',1,2,496,'Thriller'),
+--('9789175035505','I farans riktning','Svenska',69,'20160616',2,3,186,'Roman');
 
 
 
+
+select * from Böcker;
+select * from Författare;
+
+
+
+
+--alter table Böcker
+--add constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade;
 
 --Alter table Personal
 --add constraint FK_Anställning foreign key (ButikID) references Butiker(ButikID); --on delete cascade on update cascade;
