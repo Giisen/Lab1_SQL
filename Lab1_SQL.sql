@@ -39,7 +39,8 @@ use Bokhandel;
 --Values
 --('Torslanda','Flygvägen 1','42341','Torslanda',1),
 --('Åsa','Strandvägen 12','41719','Åsa',4),
---('Stockholm','Paradgatan 8','51317','Stockholm',8)
+--('Stockholm','Paradgatan 8','51317','Stockholm',8),
+--('Web','N/A','00000','N/A',1)
 --;
 
 --insert into Personal
@@ -181,11 +182,33 @@ use Bokhandel;
 --(3,'9789137152653',4,1);
 
 
+--create table Ordrar(
+--OrderID int identity(1,1) primary key,
+--ISBN13 nvarchar(32) not null,
+--Antal int not null,
+--StyckPris int not null,
+--OrderTid datetime2 not null,
+--ButikID int not null,
+--PersonalID int not null);
+
+--Bulk insert Ordrar
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Ordrar.csv'
+--WITH
+--(
+--        --FORMAT='CSV',
+--        DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
+
+select* from personal
+select * from Ordrar
 select * from Böcker;
 --select * from Författare;
 select * from Butiker;
 select * from Bokform;
---select * from LagerSaldo;
+select * from LagerSaldo;
 
 
 
