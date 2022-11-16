@@ -191,6 +191,15 @@ use Bokhandel;
 --ButikID int not null,
 --PersonalID int not null);
 
+
+--Alter table Ordrar
+--add foreign key (PersonalID) references Personal(PersonalID);
+
+
+--Alter table Ordrar
+--add foreign key (ButikID) references Butiker(ButikID);
+
+
 --Bulk insert Ordrar
 --from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Ordrar.csv'
 --WITH
@@ -208,6 +217,9 @@ use Bokhandel;
 --from Ordrar
 --Group by ISBN13
 --order by  sales desc;
+
+
+
 
 select* from personal
 select * from Ordrar
