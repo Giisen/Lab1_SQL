@@ -33,9 +33,9 @@ use Bokhandel;
 
 --create table Personal(
 --PersonalID int IDENTITY(1,1) primary key,
---Förnamn nvarchar not null,
---Efternamn nvarchar not null,
---Anställningsform int not null,
+--Förnamn nvarchar(max) not null,
+--Efternamn nvarchar(max) not null,
+--AFormID int not null,
 --A_From date not null,
 --A_Tom date not null,
 --ButikID int);
@@ -47,27 +47,46 @@ use Bokhandel;
 --);
 
 
+--insert into Anställningsform
+--(Anställningsform)
+--Values
+--('Tillsvidare'),
+--('Timanställd');
+
 --create table Butiker(
 --ButikID int IDENTITY(1,1) primary key,
---ButiksNamn nvarchar not null,
---Gatuadress nvarchar not null,
---Postnummer nvarchar not null,
---Postort nvarchar not null,
+--ButiksNamn nvarchar(max) not null,
+--Gatuadress nvarchar(max) not null,
+--Postnummer nvarchar(max) not null,
+--Postort nvarchar(max) not null,
 --Butikschef int not null
---constraint FK_Butikschef foreign key (Butikschef) references Personal(PersonalID) on delete cascade on update cascade
 --);
 
---Alter table Personal
---add constraint FK_Anställning foreign key (ButikID) references Butiker(ButikID); --on delete cascade on update cascade;
 
---alter table personal
---add constraint FK_Anställningsform foreign key (AFormID) references Anställningsform(AFormID);
 
-insert into Personal
-(Förnamn,Efternamn,Anställningstyp,A_From,A_Tom,ButikID)
-Values
-('Krister','Ekelund','Tillsvidare'
 
+--insert into Butiker
+--(ButiksNamn,Gatuadress,Postnummer,Postort,Butikschef)
+--Values
+--('Torslanda','Flygvägen 1','42341','Torslanda',1),
+--('Åsa','Strandvägen 12','41719','Åsa',4),
+--('Stockholm','Paradgatan 8','51317','Stockholm',8)
+--;
+
+select * from butiker;
+
+
+--insert into Personal
+--(Förnamn,Efternamn,AFormID,A_From,A_Tom,ButikID)
+--Values
+--('Krister','Ekelund',1,'19990101','99991231',1),
+--('Niklas','Hjelm',2,'20220401','20220930',2),
+--('Tova','Larsson',2,'20050601','99991231',3),
+--('Eva','Ek',1,'20090701','99991231',2),
+--('Björn','Lindström',1,'20100301','99991231',3),
+--('Linda','Ström',2,'20140601','20220301',3),
+--('Karin','Örn',1,'20170801','99991231',1),
+--('Olof','Nilsson',1,'20000201','99991231',3);
 
 
 
@@ -106,3 +125,15 @@ Values
 --('9789175035505','I farans riktning','Svenska',69,'20160616',3,2,186,'Roman');
 
 
+
+
+
+
+--Alter table Personal
+--add constraint FK_Anställning foreign key (ButikID) references Butiker(ButikID); --on delete cascade on update cascade;
+
+--alter table personal
+--add constraint FK_Anställningsform foreign key (AFormID) references Anställningsform(AFormID);
+
+--alter table Butiker
+--constraint FK_Butikschef foreign key (Butikschef) references Personal(PersonalID) on delete cascade on update cascade;
