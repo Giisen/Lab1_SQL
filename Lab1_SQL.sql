@@ -14,7 +14,7 @@ use Bokhandel;
 
 --create table Anställningsform
 --(AFormID int IDENTITY(1,1) primary key,
---Antställningsform nvarchar(max)
+--Anställningsform nvarchar(max)
 --);
 
 
@@ -53,7 +53,8 @@ use Bokhandel;
 --('Björn','Lindström',1,'20100301','99991231',3),
 --('Linda','Ström',2,'20140601','20220301',3),
 --('Karin','Örn',1,'20170801','99991231',1),
---('Olof','Nilsson',1,'20000201','99991231',3);
+--('Olof','Nilsson',1,'20000201','99991231',3)
+--('Web','N/A',1,'20050601','99991231',4);
 
 
 
@@ -107,6 +108,10 @@ use Bokhandel;
 --);
 
 
+ alter table Förlag
+ drop constraint ISBN13
+
+select * from Förlag
 
 
 --create table Förlag(
