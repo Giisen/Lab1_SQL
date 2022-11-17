@@ -2,6 +2,7 @@
 use Bokhandel;
 
 
+
 --create table Personal(
 --PersonalID int IDENTITY(1,1) primary key,
 --Förnamn nvarchar(max) not null,
@@ -40,7 +41,7 @@ use Bokhandel;
 --('Torslanda','Flygvägen 1','42341','Torslanda',1),
 --('Åsa','Strandvägen 12','41719','Åsa',4),
 --('Stockholm','Paradgatan 8','51317','Stockholm',8),
---('Web','N/A','00000','N/A',1)
+--('Web','Lagervägen 3','13241','Flen',1)
 --;
 
 --insert into Personal
@@ -82,7 +83,7 @@ use Bokhandel;
 
 
 --create table Böcker(
---ISBN13 nvarchar(32) primary key,
+--ISBN13 nvarchar(13) primary key,
 --Titel nvarchar(max) not null,
 --Språk nvarchar(max) not null,
 --Pris int not null,
@@ -90,8 +91,8 @@ use Bokhandel;
 --FörfattareID int not null,
 --FormID int not null,
 --AntalSidor int,
---Genre nvarchar(max),
---constraint FK_FörfattareID foreign key (FörfattareID) references Författare(ID) on delete cascade on update cascade,
+--Genre nvarchar(max)
+----constraint FK_FörfattareID foreign key (FörfattareID) references Författare(ID) on delete cascade on update cascade,
 ----constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade
 --);
 
@@ -99,26 +100,20 @@ use Bokhandel;
 
 --create table LagerSaldo(
 --ButikID int not null,
---ISBN13 nvarchar(32) not null,
+--ISBN13 nvarchar(13) not null,
 --Antal int not null,
 --FormID int not null
---constraint FK_ButikID foreign key (ButikID) references Butiker(ButikID) on delete cascade on update cascade,
---constraint FK_ISBN foreign key (ISBN13) references Böcker(ISBN13) on delete cascade on update cascade,
+----constraint FK_ButikID foreign key (ButikID) references Butiker(ButikID) on delete cascade on update cascade,
+----constraint FK_ISBN foreign key (ISBN13) references Böcker(ISBN13) on delete cascade on update cascade,
 --Primary Key (ButikID,ISBN13)
 --);
 
 
- alter table Förlag
- drop constraint ISBN13
-
-select * from Förlag
-
-
 --create table Förlag(
---ISBN13 nvarchar(32) not null,
+--ISBN13 nvarchar(13) not null,
 --FörlagsNamn nvarchar not null,
 --Primary Key (ISBN13),
---foreign key (ISBN13) references Böcker(ISBN13) on delete cascade on update cascade
+----foreign key (ISBN13) references Böcker(ISBN13) on delete cascade on update cascade
 --); 
 
 
@@ -196,7 +191,7 @@ select * from Förlag
 
 --create table Ordrar(
 --OrderID int identity(1,1) primary key,
---ISBN13 nvarchar(32) not null,
+--ISBN13 nvarchar(13) not null,
 --Antal int not null,
 --StyckPris int not null,
 --OrderTid datetime2 not null,
@@ -226,15 +221,6 @@ select * from Förlag
 
 
 
-select* from personal
-select * from Ordrar
-select * from Böcker;
---select * from Författare;
-select * from Butiker;
-select * from Bokform;
-select * from LagerSaldo;
-
-
 
 
 
@@ -253,7 +239,6 @@ select * from LagerSaldo;
 
 --Alter table Ordrar
 --add foreign key (PersonalID) references Personal(PersonalID);
-
 
 --Alter table Ordrar
 --add foreign key (ButikID) references Butiker(ButikID);
