@@ -41,7 +41,7 @@ use Bokhandel;
 --('Torslanda','Flygvägen 1','42341','Torslanda',1),
 --('Åsa','Strandvägen 12','41719','Åsa',4),
 --('Stockholm','Paradgatan 8','51317','Stockholm',8),
---('Web','Lagervägen 3','13241','Flen',1)
+--('Web','Lagervägen 3','13241','Flen',9)
 --;
 
 --insert into Personal
@@ -55,8 +55,7 @@ use Bokhandel;
 --('Linda','Ström',2,'20140601','20220301',3),
 --('Karin','Örn',1,'20170801','99991231',1),
 --('Olof','Nilsson',1,'20000201','99991231',3)
---('Web','N/A',1,'20050601','99991231',4);
-
+--('Conny','Svensson',1,'20050601','99991231',4);
 
 
 --create table Författare(
@@ -219,8 +218,15 @@ use Bokhandel;
 --order by  sales desc;
 
 
-
-
+select * from Bokform
+select * from Anställningsform
+select * from Författare
+select * from Förlag
+select * from Butiker
+select * from Böcker
+select * from LagerSaldo
+select * from Ordrar
+select * from Personal
 
 
 
