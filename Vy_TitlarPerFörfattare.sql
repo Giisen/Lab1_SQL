@@ -1,15 +1,13 @@
 
 declare @sysdate as date
---set @sysdate = convert(date,getdate());
 set @sysdate = getdate();
 
 
 select 
-
 concat(t1.Förnamn,' ', t1.EfterNamn) as Namn,
 convert(date,getdate()) as Sysdate,
 --cast(getdate()) as Sysdate,
-@sysdate-(t1.Födelsedatum) as Ålder
+DateDiff(year,t1.Födelsedatum,@sysdate) as Ålder
 --Count(t2.Titel) as Titlar,
 --sum(t2.Pris) as Lagervärde
 --into #DivKalkuleringar
