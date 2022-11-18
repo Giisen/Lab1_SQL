@@ -1,19 +1,43 @@
+use Bokhandel;
+
+
+
+drop table #DivKalkuleringar1;
 
 declare @sysdate as date
 set @sysdate = getdate();
+select
 
-
-select 
 concat(t1.Förnamn,' ', t1.EfterNamn) as Namn,
+t2.Titel,
 convert(date,getdate()) as Sysdate,
---cast(getdate()) as Sysdate,
-DateDiff(year,t1.Födelsedatum,@sysdate) as Ålder
---Count(t2.Titel) as Titlar,
---sum(t2.Pris) as Lagervärde
---into #DivKalkuleringar
+concat(DateDiff(year,t1.Födelsedatum,@sysdate),' År') as Ålder
+into #DivKalkuleringar1
 from Författare t1
 left join Böcker t2
 on t1.ID=t2.FörfattareID;
+
+select * from #DivKalkuleringar1;
+
+drop table #DivKalkuleringar2;
+
+select 
+t1.Titel,
+t2.Antal,
+sum(t1.Pris)*t2.Antal as Lagervärde
+into #DivKalkuleringar2
+from Böcker t1
+left join LagerSaldo t2
+on 
+t1.ISBN13=t2.ISBN13
+group by
+Titel,
+Antal
+;
+
+select * from #DivKalkuleringar2;
+
+
 
 
 --CREATE VIEW TitlarPerFörfattare 
