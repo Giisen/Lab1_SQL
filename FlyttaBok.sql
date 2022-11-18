@@ -4,8 +4,11 @@ set @FrånButik=1;
 Declare @TillButik int
 set @TillButik=2;
 
+Declare @ISBN13 nvarchar(max)
+set @ISBN13=00000000000;
+
 Declare @FlyttaAntal int
-set @FlyttaAntal=10;
+set @FlyttaAntal=1;
 
 
 Begin transaction;
