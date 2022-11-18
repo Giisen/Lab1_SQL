@@ -2,16 +2,41 @@ use Bokhandel;
 
 
 
-drop table #DivKalkuleringar1;
 
 declare @sysdate as date
 set @sysdate = getdate();
-select
 
+
+
+drop table #DivKalkuleringar1;
+
+select 
+--t1.ID,
 concat(t1.Förnamn,' ', t1.EfterNamn) as Namn,
-t2.Titel,
-convert(date,getdate()) as Sysdate,
-concat(DateDiff(year,t1.Födelsedatum,@sysdate),' År') as Ålder
+concat(DateDiff(year,t1.Födelsedatum,convert(date,getdate())),' År') as Ålder,
+count(t2.Titel) as Titlar,
+concat(sum(case when t3.Antal>0 then t2.Pris*t3.Antal else 0  end),' Kr') as Lagervärde
+from Författare t1 
+
+left join Böcker t2
+on t1.ID=t2.FörfattareID 
+
+left join LagerSaldo t3
+on t2.ISBN13=t3.ISBN13
+
+group by
+--t1.ID,
+concat(t1.Förnamn,' ', t1.EfterNamn),
+concat(DateDiff(year,t1.Födelsedatum,convert(date,getdate())),' År')
+;
+
+
+
+select
+t1.ID,
+concat(t1.Förnamn,' ', t1.EfterNamn) as Namn,
+--count(distinct(t2.Titel)) as Titlar,
+concat(DateDiff(year,t1.Födelsedatum,convert(date,getdate())),' År') as Ålder
 into #DivKalkuleringar1
 from Författare t1
 left join Böcker t2
@@ -19,13 +44,14 @@ on t1.ID=t2.FörfattareID;
 
 select * from #DivKalkuleringar1;
 
+
 drop table #DivKalkuleringar2;
 
 select 
 t1.Titel,
 t2.Antal,
 sum(t1.Pris)*t2.Antal as Lagervärde
-into #DivKalkuleringar2
+into #DivKalkuleringar3
 from Böcker t1
 left join LagerSaldo t2
 on 
@@ -58,4 +84,24 @@ select * from #DivKalkuleringar2;
 ----Convert (date,sysdatetime())-(t1.Födelsedatum),
 --Count(t2.Titel),
 --sum(t2.Pris)
+--;
+
+
+
+
+--Subquerys
+
+--select 
+--Namn,
+--Titlar
+--from
+--(select
+--concat(t1.Förnamn,' ', t1.EfterNamn) as Namn,
+--count(distinct(t2.Titel)) as Titlar
+----concat(DateDiff(year,t1.Födelsedatum,convert(date,getdate())),' År') as Ålder
+--from Författare t1 
+--left join Böcker t2
+--on t1.ID=t2.FörfattareID) Författare
+--group by
+--Namn
 --;
