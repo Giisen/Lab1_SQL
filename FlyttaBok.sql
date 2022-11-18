@@ -1,10 +1,11 @@
-Declare @FrånButik nvarchar(max)
-set @FrånButik='Läshörnan';
+Declare @FrånButik int
+set @FrånButik=1;
 
-Declare @TillButik nvarchar(max)
-set @TillButik='City Book';
+Declare @TillButik int
+set @TillButik=2;
 
-
+Declare @FlyttaAntal int
+set @FlyttaAntal=10;
 
 
 Begin transaction;
