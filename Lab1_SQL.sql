@@ -38,11 +38,12 @@ use Bokhandel;
 --insert into Butiker
 --(ButiksNamn,Gatuadress,Postnummer,Postort,Butikschef)
 --Values
---('Torslanda','Flygvägen 1','42341','Torslanda',1),
---('Åsa','Strandvägen 12','41719','Åsa',4),
---('Stockholm','Paradgatan 8','51317','Stockholm',8),
+--('Läshörnan','Flygvägen 1','42341','Torslanda',1),
+--('Book on the beach','Strandvägen 12','41719','Åsa',4),
+--('City Book','Paradgatan 8','51317','Stockholm',8),
 --('Web','Lagervägen 3','13241','Flen',9)
 --;
+
 
 --insert into Personal
 --(Förnamn,Efternamn,AFormID,A_From,A_Tom,ButikID)
@@ -115,18 +116,18 @@ use Bokhandel;
 ----foreign key (ISBN13) references Böcker(ISBN13) on delete cascade on update cascade
 --); 
 
-insert into Förlag
-values
-('9789174130416','Bonnier Audio'),
-('9780099537090','Random House UK'),
-('9789175035505','Månpocket'),
-('9789127179554','Natur Kultur Allmänlitteratur'),
-('9789113122151','Nordstedts'),
-('9789100167127','Albert Bonniers Förlag'),
-('9789137158686','Bokförlaget Forum'),
-('9781398518179','SimonSchuster Ltd'),
-('9781612680194','Plata Publiching'),
-('9789137152653','Bokförlaget Forum');
+--insert into Förlag
+--values
+--('9789174130416','Bonnier Audio'),
+--('9780099537090','Random House UK'),
+--('9789175035505','Månpocket'),
+--('9789127179554','Natur Kultur Allmänlitteratur'),
+--('9789113122151','Nordstedts'),
+--('9789100167127','Albert Bonniers Förlag'),
+--('9789137158686','Bokförlaget Forum'),
+--('9781398518179','SimonSchuster Ltd'),
+--('9781612680194','Plata Publiching'),
+--('9789137152653','Bokförlaget Forum');
 
 
 
@@ -231,6 +232,9 @@ values
 --from Ordrar
 --Group by ISBN13
 --order by  sales desc;
+
+
+
 
 
 select * from Bokform
