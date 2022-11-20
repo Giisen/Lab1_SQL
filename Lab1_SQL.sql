@@ -110,32 +110,49 @@ use Bokhandel;
 --(2,'Engelska');
 
 
---create table Genre(
+
+--create table GenreFakta(
 --ISBN13 nvarchar(13) not null,
---Genre nvarchar(255) not null
---primary key (ISBN13,Genre));
+--GenreID int not null
+--primary key (ISBN13,GenreID));
+
+--create table GenreDim(
+--GenreID int IDENTITY(1,1) primary key,
+--Genre nvarchar(max) not null);
 
 
-
---insert into Genre
+--insert into GenreDim
 --values
---('9789174130416','Thriller'),
---('9780099537090','Deckare'),
---('9780099537090','Kriminalroman'),
---('9789175035505','Deckare'),
---('9789175035505','Kriminalroman'),
---('9789127179554','Kokbok'),
---('9789113122151','Skönlitteratur'),
---('9789100167127','Thriller'),
---('9789100167127','Deckare'),
---('9789137158686','Deckare'),
---('9789137158686','Kriminalroman'),
---('9781398518179','Skönlitteratur'),
---('9781398518179','Romantik'),
---('9781612680194','Föräldraskap'),
---('9781612680194','Uppfostran'),
---('9789137152653','Deckare'),
---('9789137152653','Kriminalroman');
+--('Thriller'),
+--('Deckare'),
+--('Kriminalroman'),
+--('Kokbok'),
+--('Skönlitteratur'),
+--('Romantik'),
+--('Föräldraskap'),
+--('Uppfostran');
+
+
+
+--insert into GenreFakta
+--values
+--('9789174130416',1),
+--('9780099537090',2),
+--('9780099537090',3),
+--('9789175035505',2),
+--('9789175035505',3),
+--('9789127179554',4),
+--('9789113122151',5),
+--('9789100167127',1),
+--('9789100167127',2),
+--('9789137158686',2),
+--('9789137158686',3),
+--('9781398518179',5),
+--('9781398518179',6),
+--('9781612680194',7),
+--('9781612680194',8),
+--('9789137152653',2),
+--('9789137152653',3);
 
 
 
