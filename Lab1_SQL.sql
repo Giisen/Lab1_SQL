@@ -157,31 +157,6 @@ use Bokhandel;
 --('Uppfostran');
 
 
-
---insert into GenreFakta
---values
---('9789174130416',1),
---('9780099537090',2),
---('9780099537090',3),
---('9789175035505',2),
---('9789175035505',3),
---('9789127179554',4),
---('9789113122151',5),
---('9789100167127',1),
---('9789100167127',2),
---('9789137158686',2),
---('9789137158686',3),
---('9781398518179',5),
---('9781398518179',6),
---('9781612680194',7),
---('9781612680194',8),
---('9789137152653',2),
---('9789137152653',3),
---('9789113111261',2),
---('9789113111261',3);
-
-
-
 --create table LagerSaldo(
 --ButikID int not null,
 --ISBN13 nvarchar(13) not null,
@@ -213,25 +188,6 @@ use Bokhandel;
 --('9781612680194','Plata Publiching'),
 --('9789137152653','Bokförlaget Forum'),
 --('9789113111261','Norstedts');
-
-
---insert into FörfattareDim(Efternamn,Förnamn,Födelsedatum)
---Values
---('Brown', 'Dan','19640622'),
---('Grishamn', 'John','19550208'),
---('Sten', 'Viveca','19590618'),
---('Ekengren', 'Stefan','19631208'),
---('Ernaux', 'Annie','19401001'),
---('Keppler', 'Lars','19670120'),
---('Hoover', 'Colleen','19791211'),
---('Robert T', 'Kiyosaki','19470408'),
---('Läckberg', 'Camilla','19740830'),
---('Ljungdahl', 'Lena','19740503'),
---('Jinghede', 'Anna','19740214');
-
-
-
-
 
 
 --create table Ordrar(
@@ -280,16 +236,29 @@ use Bokhandel;
 
 
 
-Bulk insert Författare
-from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Författare.csv'
-WITH
-(
-        FORMAT='CSV',
-        --DATAFILETYPE='char',
-		FIRSTROW=2,
-		FIELDTERMINATOR = ',',
-		ROWTERMINATOR = '\n'
-);
+--Bulk insert Författare
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Författare.csv'
+--WITH
+--(
+--        FORMAT='CSV',
+--        --DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
+
+
+--Bulk insert GenreFakta
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\GenreFakta.csv'
+--WITH
+--(
+--        FORMAT='CSV',
+--        --DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
+
 
 
 
@@ -304,8 +273,7 @@ WITH
 
 select * from Bokform
 select * from Anställningsform
-select * from FörfattareDim
-select * from FörfattareFakta
+select * from Författare
 select * from Förlag
 select * from Butiker
 select * from Böcker
