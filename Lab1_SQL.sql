@@ -107,7 +107,9 @@ use Bokhandel;
  --('Ebok');
 
 
+
 --create table Böcker(
+--BokID int identity(1,1) Primary key,
 --ISBN13 nvarchar(13),
 --Titel nvarchar(max) not null,
 --SpråkID int not null,
@@ -116,7 +118,7 @@ use Bokhandel;
 --FörfattarID int not null,
 --FormID int not null,
 --AntalSidor int,
-----Genre nvarchar(max)
+--GenreID int
 ----constraint FK_FörfattareID foreign key (FörfattareID) references Författare(ID) on delete cascade on update cascade,
 ----constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade
 --);
@@ -134,11 +136,14 @@ use Bokhandel;
 --(2,'Engelska');
 
 
-
+------Används inte längre------------------
 --create table GenreFakta(
 --ISBN13 nvarchar(13) not null,
 --GenreID int not null
 --primary key (ISBN13,GenreID));
+------Används inte längre------------------
+
+
 
 --create table GenreDim(
 --GenreID int IDENTITY(1,1) primary key,
@@ -216,7 +221,7 @@ use Bokhandel;
 --WITH
 --(
 --        FORMAT='CSV',
---        --DATAFILETYPE='char',
+--        DATAFILETYPE='char',
 --		FIRSTROW=2,
 --		FIELDTERMINATOR = ',',
 --		ROWTERMINATOR = '\n'
@@ -284,6 +289,11 @@ select * from Ordrar
 select * from Personal
 
 
+--alter table GenreFakta
+--add foreign key (GenreID) references GenreDim(GenreID)
+
+--alter table Författare
+--add foreign key (ID) references (GenreID)
 
 
 --alter table Böcker
