@@ -10,10 +10,10 @@ count(distinct(t2.Titel)) as Titlar,
 format(sum(t2.pris*t3.Antal),'C0','se') as Lagervärde
 --format(sum(t2.pris*t3.Antal),'C0','se') as Lagervärde
 
-from FörfattareDim t1 
+from Författare t1 
 
 left join Böcker t2
-on t1.ID=t2.FörfattareID 
+on t1.ID=t2.FörfattarID 
 
 left join LagerSaldo t3
 on t2.ISBN13=t3.ISBN13
