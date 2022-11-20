@@ -24,3 +24,4 @@ concat(DateDiff(year,t1.Födelsedatum,convert(date,getdate())),' År');
 
 
 
+
