@@ -145,12 +145,12 @@ use Bokhandel;
 
 
 
---create table GenreDim(
+--create table Genre(
 --GenreID int IDENTITY(1,1) primary key,
 --Genre nvarchar(max) not null);
 
 
---insert into GenreDim
+--insert into Genre
 --values
 --('Thriller'),
 --('Deckare'),
@@ -282,18 +282,29 @@ select * from Författare
 select * from Förlag
 select * from Butiker
 select * from Böcker
-select * from GenreFakta
-select * from GenreDim
+select * from Genre
 select * from LagerSaldo
 select * from Ordrar
 select * from Personal
 
 
---alter table GenreFakta
---add foreign key (GenreID) references GenreDim(GenreID)
-
 --alter table Författare
 --add foreign key (ID) references (GenreID)
+
+--alter table Böcker
+--add foreign key (GenreID) references Genre(GenreID)
+
+--alter table Böcker
+--add foreign key (SpråkID) references BokSpråk(SpråkID)
+
+--alter table Böcker
+--add foreign key (FormID) references Bokform(FormID)
+
+--alter table Böcker
+--add foreign key (ISBN13) references Förlag(ISBN13)
+
+--alter table Böcker
+--add foreign key (FörfattarID) references Författare(ID)
 
 
 --alter table Böcker
