@@ -249,6 +249,7 @@ use Bokhandel;
 
 
 
+------Används inte längre--------------------
 --insert into LagerSaldo
 --(ButikID,ISBN13,Antal, FormID)
 --values
@@ -289,7 +290,7 @@ use Bokhandel;
 --(4,'9781398518179',136,2),
 --(4,'9781612680194',190,2),
 --(4,'9789137152653',49,1);
-
+------Används inte längre--------------------
 
 --create table Ordrar(
 --OrderID int identity(1,1) primary key,
@@ -323,6 +324,17 @@ use Bokhandel;
 --		ROWTERMINATOR = '\n'
 --);
 
+
+--Bulk insert LagerSaldo
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\LagerSaldo.csv'
+--WITH
+--(
+--        FORMAT='CSV',
+--        --DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
 
 
 
