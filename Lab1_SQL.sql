@@ -112,8 +112,8 @@ use Bokhandel;
 
 --create table Genre(
 --ISBN13 nvarchar(13) not null,
---Genre nvarchar(max) not null
---);
+--Genre nvarchar(255) not null
+--primary key (ISBN13,Genre));
 
 
 
@@ -136,8 +136,6 @@ use Bokhandel;
 --('9781612680194','Uppfostran'),
 --('9789137152653','Deckare'),
 --('9789137152653','Kriminalroman');
-
-
 
 
 
@@ -286,6 +284,7 @@ select * from Författare
 select * from Förlag
 select * from Butiker
 select * from Böcker
+select * from Genre
 select * from LagerSaldo
 select * from Ordrar
 select * from Personal
