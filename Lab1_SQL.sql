@@ -287,6 +287,7 @@ select * from Personal
 
 
 --alter table Böcker
+--add primary key(ISBN13,FörfattarID)
 --add constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade;
 
 --Alter table Personal
