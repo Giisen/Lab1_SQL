@@ -81,20 +81,63 @@ use Bokhandel;
  --('Audiobok'),
  --('Ebok');
 
+ --drop table Böcker;
 
 --create table Böcker(
 --ISBN13 nvarchar(13) primary key,
 --Titel nvarchar(max) not null,
---Språk nvarchar(max) not null,
+--SpråkID int not null,
 --Pris int not null,
 --Utgivningsdatum date not null,
 --FörfattareID int not null,
 --FormID int not null,
 --AntalSidor int,
---Genre nvarchar(max)
+----Genre nvarchar(max)
 ----constraint FK_FörfattareID foreign key (FörfattareID) references Författare(ID) on delete cascade on update cascade,
 ----constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade
 --);
+
+--create table BokSpråk(
+--SpråkID int primary key,
+--Språk nvarchar(max) not null
+--);
+
+
+
+--insert into BokSpråk
+--values
+--(1,'Svenska'),
+--(2,'Engelska');
+
+
+--create table Genre(
+--ISBN13 nvarchar(13) not null,
+--Genre nvarchar(max) not null
+--);
+
+
+
+--insert into Genre
+--values
+--('9789174130416','Thriller'),
+--('9780099537090','Deckare'),
+--('9780099537090','Kriminalroman'),
+--('9789175035505','Deckare'),
+--('9789175035505','Kriminalroman'),
+--('9789127179554','Kokbok'),
+--('9789113122151','Skönlitteratur'),
+--('9789100167127','Thriller'),
+--('9789100167127','Deckare'),
+--('9789137158686','Deckare'),
+--('9789137158686','Kriminalroman'),
+--('9781398518179','Skönlitteratur'),
+--('9781398518179','Romantik'),
+--('9781612680194','Föräldraskap'),
+--('9781612680194','Uppfostran'),
+--('9789137152653','Deckare'),
+--('9789137152653','Kriminalroman');
+
+
 
 
 
@@ -147,18 +190,18 @@ use Bokhandel;
 
 
 
---insert into Böcker (ISBN13,Titel,Språk,Pris,Utgivningsdatum,FörfattareID,FormID,AntalSidor,Genre)
+--insert into Böcker (ISBN13,Titel,SpråkID,Pris,Utgivningsdatum,FörfattareID,FormID,AntalSidor)
 --values
---('9789174130416','Da Vinci-koden','Svenska',150,'20091001',1,3,0,'Thriller'),
---('9780099537090','The Firm','Engelska',99,'20101028',1,2,496,'Thriller'),
---('9789175035505','I farans riktning','Svenska',69,'20160616',2,3,186,'Roman'),
---('9789127179554','Potatis','Svenska',249,'20220916',4,1,189,'Kokbok'),
---('9789113122151','Omständigheter','Svenska',199,'20220902',5,1,127,'Roman'),
---('9789100167127','Spindeln','Svenska',99,'20221019',6,4,0,'Deckare'),
---('9789137158686','Botgöraren','Svenska',99,'20221004',3,4,0,'Deckare'),
---('9781398518179','It starts with us','Engelska',171,'20221018',7,2,336,'Roman'),
---('9781612680194','Rich dad Poor dad','Engelska',122,'20170427',8,2,336,'Föräldraskap'),
---('9789137152653','Gökungen','Svenska',219,'20220912',9,1,350,'Deckare');
+--('9789174130416','Da Vinci-koden',1,150,'20091001',1,3,0),
+--('9780099537090','The Firm',2,99,'20101028',1,2,496),
+--('9789175035505','I farans riktning',1,69,'20160616',2,3,186),
+--('9789127179554','Potatis',1,249,'20220916',4,1,189),
+--('9789113122151','Omständigheter',1,199,'20220902',5,1,127),
+--('9789100167127','Spindeln',1,99,'20221019',6,4,0),
+--('9789137158686','Botgöraren',1,99,'20221004',3,4,0),
+--('9781398518179','It starts with us',2,171,'20221018',7,2,336),
+--('9781612680194','Rich dad Poor dad',2,122,'20170427',8,2,336),
+--('9789137152653','Gökungen',1,219,'20220912',9,1,350);
 
 
 
