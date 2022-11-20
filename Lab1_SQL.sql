@@ -71,7 +71,7 @@ use Bokhandel;
 --primary key (ISBN13,FörfattareID));
 
 
-
+------Används inte längre-------------------
 --insert into FörfattareFakta (ISBN13,FörfattareID)
 --values
 --('9789174130416',1),
@@ -86,7 +86,7 @@ use Bokhandel;
 --('9789137152653',9)
 --('9789113111261',10),
 --('9789113111261',11);
-
+------Används inte längre-------------------
 
 
 
@@ -107,13 +107,13 @@ use Bokhandel;
  --('Ebok');
 
 
-
 --create table Böcker(
---ISBN13 nvarchar(13) primary key,
+--ISBN13 nvarchar(13),
 --Titel nvarchar(max) not null,
 --SpråkID int not null,
 --Pris int not null,
 --Utgivningsdatum date not null,
+--FörfattarID int not null,
 --FormID int not null,
 --AntalSidor int,
 ----Genre nvarchar(max)
@@ -300,8 +300,6 @@ use Bokhandel;
 --ButikID int not null,
 --PersonalID int not null);
 
-
-
 --Bulk insert Ordrar
 --from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Ordrar.csv'
 --WITH
@@ -313,13 +311,28 @@ use Bokhandel;
 --		ROWTERMINATOR = '\n'
 --);
 
+
+--Bulk insert Böcker
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Böcker.csv'
+--WITH
+--(
+--        FORMAT='CSV',
+--        --DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
+
+
+
+
+
 --select 
 --ISBN13,
 --sum(Styckpris) as sales
 --from Ordrar
 --Group by ISBN13
 --order by  sales desc;
-
 
 
 select * from Bokform
