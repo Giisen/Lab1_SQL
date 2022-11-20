@@ -2,7 +2,6 @@
 use Bokhandel;
 
 
-
 --create table Personal(
 --PersonalID int IDENTITY(1,1) primary key,
 --Förnamn nvarchar(max) not null,
@@ -84,7 +83,9 @@ use Bokhandel;
 --('9789137158686',3),
 --('9781398518179',7),
 --('9781612680194',8),
---('9789137152653',9);
+--('9789137152653',9)
+--('9789113111261',10),
+--('9789113111261',11);
 
 
 
@@ -105,7 +106,7 @@ use Bokhandel;
  --('Audiobok'),
  --('Ebok');
 
- --drop table Böcker;
+
 
 --create table Böcker(
 --ISBN13 nvarchar(13) primary key,
@@ -113,7 +114,6 @@ use Bokhandel;
 --SpråkID int not null,
 --Pris int not null,
 --Utgivningsdatum date not null,
---FörfattareID int not null,
 --FormID int not null,
 --AntalSidor int,
 ----Genre nvarchar(max)
@@ -176,7 +176,9 @@ use Bokhandel;
 --('9781612680194',7),
 --('9781612680194',8),
 --('9789137152653',2),
---('9789137152653',3);
+--('9789137152653',3),
+--('9789113111261',2),
+--('9789113111261',3);
 
 
 
@@ -204,15 +206,16 @@ use Bokhandel;
 --('9780099537090','Random House UK'),
 --('9789175035505','Månpocket'),
 --('9789127179554','Natur Kultur Allmänlitteratur'),
---('9789113122151','Nordstedts'),
+--('9789113122151','Norstedts'),
 --('9789100167127','Albert Bonniers Förlag'),
 --('9789137158686','Bokförlaget Forum'),
 --('9781398518179','SimonSchuster Ltd'),
 --('9781612680194','Plata Publiching'),
---('9789137152653','Bokförlaget Forum');
+--('9789137152653','Bokförlaget Forum'),
+--('9789113111261','Norstedts');
 
 
---insert into FörfattareDim(Förnamn,Efternamn,Födelsedatum)
+--insert into FörfattareDim(Efternamn,Förnamn,Födelsedatum)
 --Values
 --('Brown', 'Dan','19640622'),
 --('Grishamn', 'John','19550208'),
@@ -222,22 +225,27 @@ use Bokhandel;
 --('Keppler', 'Lars','19670120'),
 --('Hoover', 'Colleen','19791211'),
 --('Robert T', 'Kiyosaki','19470408'),
---('Läckberg', 'Camilla','19740830');
+--('Läckberg', 'Camilla','19740830'),
+--('Ljungdahl', 'Lena','19740503'),
+--('Jinghede', 'Anna','19740214');
 
 
 
---insert into Böcker (ISBN13,Titel,SpråkID,Pris,Utgivningsdatum,FörfattareID,FormID,AntalSidor)
+
+
+--insert into Böcker (ISBN13,Titel,SpråkID,Pris,Utgivningsdatum,FormID,AntalSidor)
 --values
---('9789174130416','Da Vinci-koden',1,150,'20091001',1,3,0),
---('9780099537090','The Firm',2,99,'20101028',1,2,496),
---('9789175035505','I farans riktning',1,69,'20160616',2,3,186),
---('9789127179554','Potatis',1,249,'20220916',4,1,189),
---('9789113122151','Omständigheter',1,199,'20220902',5,1,127),
---('9789100167127','Spindeln',1,99,'20221019',6,4,0),
---('9789137158686','Botgöraren',1,99,'20221004',3,4,0),
---('9781398518179','It starts with us',2,171,'20221018',7,2,336),
---('9781612680194','Rich dad Poor dad',2,122,'20170427',8,2,336),
---('9789137152653','Gökungen',1,219,'20220912',9,1,350);
+--('9789174130416','Da Vinci-koden',1,150,'20091001',3,0),
+--('9780099537090','The Firm',2,99,'20101028',2,496),
+--('9789175035505','I farans riktning',1,69,'20160616',3,186),
+--('9789127179554','Potatis',1,249,'20220916',1,189),
+--('9789113122151','Omständigheter',1,199,'20220902',1,127),
+--('9789100167127','Spindeln',1,99,'20221019',4,0),
+--('9789137158686','Botgöraren',1,99,'20221004',4,0),
+--('9781398518179','It starts with us',2,171,'20221018',2,336),
+--('9781612680194','Rich dad Poor dad',2,122,'20170427',2,336),
+--('9789137152653','Gökungen',1,219,'20220912',1,350),
+--('9789113111261','Någon måste dö',1,119,'20220902',1,380);
 
 
 
