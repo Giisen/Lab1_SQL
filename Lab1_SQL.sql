@@ -59,7 +59,7 @@ use Bokhandel;
 --('Conny','Svensson',1,'20050601','99991231',4);
 
 
---create table Författare(
+--create table FörfattareDim(
 --ID int IDENTITY(1,1) primary key,
 --Förnamn nvarchar(max) not null,
 --Efternamn nvarchar(max) not null,
@@ -188,9 +188,6 @@ use Bokhandel;
 --('9789137152653','Bokförlaget Forum');
 
 
-
-
-
 --insert into Författare(Förnamn,Efternamn,Födelsedatum)
 --Values
 --('Brown', 'Dan','19640622'),
@@ -301,7 +298,8 @@ select * from Författare
 select * from Förlag
 select * from Butiker
 select * from Böcker
-select * from Genre
+select * from GenreFakta
+select * from GenreDim
 select * from LagerSaldo
 select * from Ordrar
 select * from Personal

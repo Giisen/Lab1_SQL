@@ -1,5 +1,5 @@
 use Bokhandel;
-drop view [TitlarPerFörfattare] 
+--drop view [TitlarPerFörfattare] 
 GO
 create view [TitlarPerFörfattare] 
 as
@@ -10,7 +10,7 @@ count(distinct(t2.Titel)) as Titlar,
 format(sum(t2.pris*t3.Antal),'C0','se') as Lagervärde
 --format(sum(t2.pris*t3.Antal),'C0','se') as Lagervärde
 
-from Författare t1 
+from FörfattareDim t1 
 
 left join Böcker t2
 on t1.ID=t2.FörfattareID 
