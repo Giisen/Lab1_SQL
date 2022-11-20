@@ -66,6 +66,30 @@ use Bokhandel;
 --Födelsedatum date not null,
 --);
 
+--create table FörfattareFakta(
+--ISBN13 nvarchar(13),
+--FörfattareID int not null
+--primary key (ISBN13,FörfattareID));
+
+
+
+--insert into FörfattareFakta (ISBN13,FörfattareID)
+--values
+--('9789174130416',1),
+--('9780099537090',2),
+--('9789175035505',3),
+--('9789127179554',4),
+--('9789113122151',5),
+--('9789100167127',6),
+--('9789137158686',3),
+--('9781398518179',7),
+--('9781612680194',8),
+--('9789137152653',9);
+
+
+
+
+
 --create table Bokform(
 --FormID int IDENTITY(1,1) primary key,
 --BokForm nvarchar(max) not null
@@ -188,7 +212,7 @@ use Bokhandel;
 --('9789137152653','Bokförlaget Forum');
 
 
---insert into Författare(Förnamn,Efternamn,Födelsedatum)
+--insert into FörfattareDim(Förnamn,Efternamn,Födelsedatum)
 --Values
 --('Brown', 'Dan','19640622'),
 --('Grishamn', 'John','19550208'),
@@ -290,11 +314,10 @@ use Bokhandel;
 
 
 
-
-
 select * from Bokform
 select * from Anställningsform
-select * from Författare
+select * from FörfattareDim
+select * from FörfattareFakta
 select * from Förlag
 select * from Butiker
 select * from Böcker
