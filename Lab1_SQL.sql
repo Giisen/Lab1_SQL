@@ -60,8 +60,8 @@ use Bokhandel;
 
 --create table Författare(
 --ID int IDENTITY(1,1) primary key,
---Förnamn nvarchar(max) not null,
 --Efternamn nvarchar(max) not null,
+--Förnamn nvarchar(max) not null,
 --Födelsedatum date not null,
 --);
 
@@ -69,32 +69,10 @@ use Bokhandel;
 --ISBN13 nvarchar(13) foreign key (ISBN13) references Böcker(ISBN13),
 --FörfattareID int not null foreign key (FörfattareID) references Författare(ID));
 
-
-------Används inte längre-------------------
---insert into FörfattareFakta (ISBN13,FörfattareID)
---values
---('9789174130416',1),
---('9780099537090',2),
---('9789175035505',3),
---('9789127179554',4),
---('9789113122151',5),
---('9789100167127',6),
---('9789137158686',3),
---('9781398518179',7),
---('9781612680194',8),
---('9789137152653',9)
---('9789113111261',10),
---('9789113111261',11);
-------Används inte längre-------------------
-
-
-
-
 --create table Bokform(
 --FormID int IDENTITY(1,1) primary key,
 --BokForm nvarchar(max) not null
 --);
-
 
 
  --insert into Bokform
