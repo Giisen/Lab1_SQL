@@ -135,12 +135,9 @@ use Bokhandel;
 --(2,'Engelska');
 
 
-------Används inte längre------------------
---create table GenreFakta(
---ISBN13 nvarchar(13) not null,
---GenreID int not null
---primary key (ISBN13,GenreID));
-------Används inte längre------------------
+--create table BöckerGenreJunction(
+--ISBN13 nvarchar(13) constraint FK_ISBN13 foreign key (ISBN13) references Böcker(ISBN13),
+--GenreID int not null constraint FK_GenreID foreign key (GenreID) references Genre(GenreID));
 
 
 
@@ -266,6 +263,30 @@ use Bokhandel;
 
 
 
+--Bulk insert BöckerFörfattareJunction
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Böcker_förf_junction.csv'
+--WITH
+--(
+--        FORMAT='CSV',
+--        --DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
+
+
+--Bulk insert BöckerGenreJunction
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Böcker_Genre_junction.csv'
+--WITH
+--(
+--        FORMAT='CSV',
+--        --DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
+
+
 
 --select 
 --ISBN13,
@@ -285,13 +306,49 @@ select * from Genre
 select * from LagerSaldo
 select * from Ordrar
 select * from Personal
+select * from BöckerFörfattareJunction
+select * from BöckerGenreJunction
+
+
+--Genre
+select
+t1.ISBN13,
+t1.Titel,
+t3.Genre
+from Böcker t1
+join BöckerGenreJunction t2
+on t1.ISBN13=t2.ISBN13
+
+join Genre t3
+on t2.GenreID=t3.GenreID
+
+--Författare
+select
+t1.ISBN13,
+t1.Titel,
+t3.Förnamn,
+t3.Efternamn
+from Böcker t1
+join BöckerFörfattareJunction t2
+on t1.ISBN13=t2.ISBN13
+
+join Författare t3
+on t2.FörfattareID=t3.ID
 
 
 
+
+
+
+
+--alter table Ordrar
+--add constraint FK_Böcker foreign key (ISBN13) references Böcker(ISBN13)
+
+--alter table LagerSaldo
+--drop FK__LagerSald__ISBN1__7C1A6C5A
 
 --alter table LagerSaldo
 --add foreign key (ISBN13) references Böcker(ISBN13)
-
 
 --alter table Författare
 --add foreign key (ID) references (GenreID)
@@ -306,7 +363,7 @@ select * from Personal
 --add foreign key (FormID) references Bokform(FormID)
 
 --alter table Böcker
---add foreign key (ISBN13) references Förlag(ISBN13)
+--add constraint FK_Förlag foreign key (ISBN13) references Förlag(ISBN13)
 
 --alter table Böcker
 --drop constraint FK__Böcker__Författa__6DCC4D03
