@@ -323,7 +323,7 @@ on t2.FörfattareID=t3.ID
 --add constraint FK_Böcker foreign key (ISBN13) references Böcker(ISBN13)
 
 --alter table LagerSaldo
---drop FK__LagerSald__ISBN1__7C1A6C5A
+--add foreign key (ButikID) references Butiker(ButikID)
 
 --alter table LagerSaldo
 --add foreign key (ISBN13) references Böcker(ISBN13)
