@@ -65,10 +65,9 @@ use Bokhandel;
 --Födelsedatum date not null,
 --);
 
---create table FörfattareFakta(
---ISBN13 nvarchar(13),
---FörfattareID int not null
---primary key (ISBN13,FörfattareID));
+--create table BöckerFörfattareJunction(
+--ISBN13 nvarchar(13) foreign key (ISBN13) references Böcker(ISBN13),
+--FörfattareID int not null foreign key (FörfattareID) references Författare(ID));
 
 
 ------Används inte längre-------------------
@@ -109,16 +108,16 @@ use Bokhandel;
 
 
 --create table Böcker(
---BokID int identity(1,1) Primary key,
---ISBN13 nvarchar(13),
+----BokID int identity(1,1) Primary key,
+--ISBN13 nvarchar(13) Primary key,
 --Titel nvarchar(max) not null,
 --SpråkID int not null,
 --Pris int not null,
 --Utgivningsdatum date not null,
---FörfattarID int not null,
+----FörfattarID int not null,
 --FormID int not null,
 --AntalSidor int,
---GenreID int
+----GenreID int
 ----constraint FK_FörfattareID foreign key (FörfattareID) references Författare(ID) on delete cascade on update cascade,
 ----constraint FK_FormID foreign key (FormID) references Bokform(FormID) on delete cascade on update cascade
 --);
@@ -216,11 +215,12 @@ use Bokhandel;
 --);
 
 
+
 --Bulk insert Böcker
---from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Böcker.csv'
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Böcker_utan_förf_Genre.csv'
 --WITH
 --(
---        FORMAT='CSV',
+--        --FORMAT='CSV',
 --        DATAFILETYPE='char',
 --		FIRSTROW=2,
 --		FIELDTERMINATOR = ',',
@@ -267,7 +267,6 @@ use Bokhandel;
 
 
 
-
 --select 
 --ISBN13,
 --sum(Styckpris) as sales
@@ -288,6 +287,12 @@ select * from Ordrar
 select * from Personal
 
 
+
+
+--alter table LagerSaldo
+--add foreign key (ISBN13) references Böcker(ISBN13)
+
+
 --alter table Författare
 --add foreign key (ID) references (GenreID)
 
@@ -304,7 +309,7 @@ select * from Personal
 --add foreign key (ISBN13) references Förlag(ISBN13)
 
 --alter table Böcker
---add foreign key (FörfattarID) references Författare(ID)
+--drop constraint FK__Böcker__Författa__6DCC4D03
 
 
 --alter table Böcker
