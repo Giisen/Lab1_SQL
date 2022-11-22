@@ -1,0 +1,39 @@
+Förklaring till vyer i databasen Bokhnadel
+
+AnställningstidPerButik
+Här visas Butiksnamn, TotalAntalAnställda samt Snitt_Antal_Månader.
+Syftet med vyn är att ge en överblick över totalt antalet anställda (både aktiva och personer som slutat) 
+samt genomsnitt antal månader som personalen varit anställd i den butiken. På så sätt får ni en övergripande 
+bild av personalomsättning per butik.
+
+
+AnställningstidPersonal
+Här visas personalens för och efternamn samt totalt antal månader varje individ varit anställd.
+Denna ger er en överblick över hur länge varje individ varit anställd inom företaget. Bra för att ex hålla koll på
+premier vid längre anställningstid mm. 
+
+
+FörsäljningPerÅrOchSäljare
+Här visas Namn på anställda, antal titlar som sålts och till vilket värde (summa) fördelat på säljare och år.
+Tabellen ger er en bild med historik över hur varje säljare har utvecklats över tid, hur många böcker och till vilket värde
+som hen har sålt.
+
+
+LagerSaldoBokformPerButik
+Här visas butiksnamn, bokform samt aktuellt lagersaldo. Detta ger er en bra blick över vilka bokformer som varje butik har
+i sitt lager just nu.
+
+
+TitlarPerFörfattare
+Här visas Författarens namn, ålder, uniktantal titlar i lager samt det totala värdet av dessa.
+
+
+TitlarPerGenre
+Här visas Genre, antal böcker i lager samt dess totala värde. Detta ger er en överblick av 
+lagersaldo och värde fördelat per genre. OBS att en bok kan ha en eller flera genren, vilket innebär att
+man inte kan summera alla genres lagervärde och tro att detta är bokhandelns totala lagervärde!
+
+
+TotalFörsäljningPerÅr
+Här visas Butiksnamn, Försäljningsår, antalet sålda böcker och till vilket värde.
+Ni får på så sätt en överblick över hur mycket varje butik har sålt för, fördelat per år.
