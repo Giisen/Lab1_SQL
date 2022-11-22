@@ -1,3 +1,4 @@
+
 Declare @FrånButik int
 set @FrånButik=1;
 
@@ -12,7 +13,19 @@ set @FlyttaAntal=1;
 
 
 Begin transaction;
+use Bokhandel
+Alter procedure FlyttaBok
 
+update LagerSaldo
+
+set Antal = Antal-@FlyttaAntal
+--set Antal = Antal+@FlyttaAntal
+
+where ButikID=@FrånButik and ISBN13 = @ISBN13
+
+--and where ButikId=@TillButik
 
 
 commit;
+
+select * from LagerSaldo
