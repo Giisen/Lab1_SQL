@@ -289,29 +289,29 @@ select * from BöckerGenreJunction
 
 
 --Genre
-select
-t1.ISBN13,
-t1.Titel,
-t3.Genre
-from Böcker t1
-join BöckerGenreJunction t2
-on t1.ISBN13=t2.ISBN13
+--select
+--t1.ISBN13,
+--t1.Titel,
+--t3.Genre
+--from Böcker t1
+--join BöckerGenreJunction t2
+--on t1.ISBN13=t2.ISBN13
 
-join Genre t3
-on t2.GenreID=t3.GenreID
+--join Genre t3
+--on t2.GenreID=t3.GenreID
 
---Författare
-select
-t1.ISBN13,
-t1.Titel,
-t3.Förnamn,
-t3.Efternamn
-from Böcker t1
-join BöckerFörfattareJunction t2
-on t1.ISBN13=t2.ISBN13
+----Författare
+--select
+--t1.ISBN13,
+--t1.Titel,
+--t3.Förnamn,
+--t3.Efternamn
+--from Böcker t1
+--join BöckerFörfattareJunction t2
+--on t1.ISBN13=t2.ISBN13
 
-join Författare t3
-on t2.FörfattareID=t3.ID
+--join Författare t3
+--on t2.FörfattareID=t3.ID
 
 
 
