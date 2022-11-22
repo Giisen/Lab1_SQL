@@ -1,11 +1,15 @@
+create procedure FlyttaBok
+as
+Go
 Begin transaction;
+
 use Bokhandel
 
 Declare @FrånButik int
-set @FrånButik=1;
+set @FrånButik=2;
 
 Declare @TillButik int
-set @TillButik=2;
+set @TillButik=1;
 
 Declare @ISBN13 nvarchar(13)
 set @ISBN13='9780099537090';
@@ -25,4 +29,3 @@ where ButikID=@TillButik and ISBN13 = @ISBN13
 
 commit;
 
-select * from LagerSaldo
