@@ -24,16 +24,3 @@ group by
 concat(t1.Förnamn,' ', t1.EfterNamn),
 concat(DateDiff(year,t1.Födelsedatum,convert(date,getdate())),' År');
 
-select
-t1.ISBN13,
-t1.Titel,
-t3.Förnamn,
-t3.Efternamn
-from Böcker t1
-join BöckerFörfattareJunction t2
-on t1.ISBN13=t2.ISBN13
-
-join Författare t3
-on t2.FörfattareID=t3.ID
-
-
