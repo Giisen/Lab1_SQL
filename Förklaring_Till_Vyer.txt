@@ -37,3 +37,7 @@ man inte kan summera alla genres lagervärde och tro att detta är bokhandelns t
 TotalFörsäljningPerÅr
 Här visas Butiksnamn, Försäljningsår, antalet sålda böcker och till vilket värde.
 Ni får på så sätt en överblick över hur mycket varje butik har sålt för, fördelat per år.
+
+TotalFörsäljningPerÅrOchMånad
+Här visas butiksnamn, försäljningsår, försäljningsmånad, antalet sålda böcker och till vilket värde.
+Ni får på så sätt en överblick över hur mycket varje butik har sålt för, fördelat per år och månad.
