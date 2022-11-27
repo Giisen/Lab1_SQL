@@ -4,12 +4,11 @@ Go
 Begin transaction;
 
 use Bokhandel
-
 Declare @FrånButik int
-set @FrånButik=2;
+set @FrånButik=1;
 
 Declare @TillButik int
-set @TillButik=1;
+set @TillButik=2;
 
 Declare @ISBN13 nvarchar(13)
 set @ISBN13='9780099537090';
@@ -22,10 +21,16 @@ update LagerSaldo
 set Antal = Antal-@FlyttaAntal
 where ButikID=@FrånButik and ISBN13 = @ISBN13
 
+Declare @RowsAffected int
+set @RowsAffected= @@ROWCOUNT;
 
 update LagerSaldo
 set Antal = Antal+@FlyttaAntal
 where ButikID=@TillButik and ISBN13 = @ISBN13
 
-commit;
+set @RowsAffected +=@@ROWCOUNT;
+
+If (@RowsAffected=2)
+commit
+else rollback;
 
