@@ -327,6 +327,7 @@ select * from BöckerGenreJunction
 
 --alter table LagerSaldo
 --add foreign key (ISBN13) references Böcker(ISBN13)
+--add foreign key (FormID) references Bokform (FormID)
 
 --alter table Författare
 --add foreign key (ID) references (GenreID)
