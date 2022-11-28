@@ -1,4 +1,4 @@
-create procedure FlyttaBok
+create procedure SP_FlyttaBok
 as
 Go
 Begin transaction;
