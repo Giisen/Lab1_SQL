@@ -24,6 +24,5 @@ If (@RowsAffected=2)
 commit
 else rollback;
 
-exec SP_FlyttaBok @Frånbutik=1,@TillButik=2,@ISBN13='9780099537090',@FlyttaAntal=1;
+--exec SP_FlyttaBok @Frånbutik=1,@TillButik=2,@ISBN13='9780099537090',@FlyttaAntal=1;
 
-drop procedure SP_FlyttaBok
