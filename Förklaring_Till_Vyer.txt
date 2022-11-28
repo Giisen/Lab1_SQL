@@ -27,6 +27,10 @@ i sitt lager just nu.
 TitlarPerFörfattare
 Här visas Författarens namn, ålder, uniktantal titlar i lager samt det totala värdet av dessa.
 
+TitlarPerFörfattareNumerisk
+Här visas Författarens namn, ålder, uniktantal titlar i lager samt det totala värdet av dessa. Skillanden mot ovan vy är att
+denna är numerisk, vilket möjliggjör sortering på värdena. Ex högsta lagervärdet.
+
 
 TitlarPerGenre
 Här visas Genre, antal böcker i lager samt dess totala värde. Detta ger er en överblick av 
