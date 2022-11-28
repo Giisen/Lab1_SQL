@@ -345,6 +345,24 @@ select * from BöckerGenreJunction
 --add constraint FK_Förlag foreign key (ISBN13) references Förlag(ISBN13)
 
 --alter table Böcker
+--add CHECK (Len(ISBN13)=13)
+
+--alter table BöckerFörfattareJunction
+--add CHECK (Len(ISBN13)=13)
+
+--alter table BöckerGenreJunction
+--add CHECK (Len(ISBN13)=13)
+
+--alter table Förlag
+--add CHECK (Len(ISBN13)=13)
+
+--alter table LagerSaldo
+--add CHECK (Len(ISBN13)=13)
+
+--alter table Ordrar
+--add CHECK (Len(ISBN13)=13)
+
+--alter table Böcker
 --drop constraint FK__Böcker__Författa__6DCC4D03
 
 
