@@ -169,17 +169,17 @@ use Bokhandel;
 --('9789113111261','Norstedts');
 
 
+
+
 --create table Ordrar(
---OrderID int identity(1,1) primary key,
+--OrderID int,
 --ISBN13 nvarchar(13) not null,
 --Antal int not null,
 --StyckPris int not null,
---OrderTid datetime2 not null,
---ButikID int not null,
---PersonalID int not null);
+--Primary Key (OrderID,ISBN13));
 
 --Bulk insert Ordrar
---from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Ordrar.csv'
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\Ordrar3.csv'
 --WITH
 --(
 --        --FORMAT='CSV',
@@ -188,6 +188,26 @@ use Bokhandel;
 --		FIELDTERMINATOR = ',',
 --		ROWTERMINATOR = '\n'
 --);
+
+
+--create table OrdrarInfo(
+--OrderID int Primary Key,
+--Tid DateTime2 not null,
+--ButikID int not null,
+--PersonalID int not null);
+
+--Bulk insert OrdrarInfo
+--from 'C:\Users\krist\Documents\GitHub\Lab1 SQL\Lab1_SQL\OrdrarInfo.csv'
+--WITH
+--(
+--        --FORMAT='CSV',
+--        DATAFILETYPE='char',
+--		FIRSTROW=2,
+--		FIELDTERMINATOR = ',',
+--		ROWTERMINATOR = '\n'
+--);
+
+
 
 
 
@@ -283,6 +303,7 @@ select * from Böcker
 select * from Genre
 select * from LagerSaldo
 select * from Ordrar
+select * from OrdrarInfo
 select * from Personal
 select * from BöckerFörfattareJunction
 select * from BöckerGenreJunction
@@ -316,11 +337,17 @@ select * from BöckerGenreJunction
 
 
 
+--alter table Ordrar
+--add primary key (OrderID,ISBN13)
 
-
+--alter table Ordrar
+--add IDColumn int identity (9000,1) primary key
 
 --alter table Ordrar
 --add constraint FK_Böcker foreign key (ISBN13) references Böcker(ISBN13)
+
+--alter table Ordrar
+--add foreign key (OrderID) references OrdrarInfo(OrderID);
 
 --alter table LagerSaldo
 --add foreign key (ButikID) references Butiker(ButikID)
@@ -360,7 +387,7 @@ select * from BöckerGenreJunction
 --add CHECK (Len(ISBN13)=13)
 
 --alter table Ordrar
---add CHECK (Len(ISBN13)=13)
+--drop constraint FK_Böcker
 
 --alter table Böcker
 --drop constraint FK__Böcker__Författa__6DCC4D03
