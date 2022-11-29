@@ -335,7 +335,8 @@ select * from BöckerGenreJunction
 --on t2.FörfattareID=t3.ID
 
 
-
+--alter table OrdrarInfo
+--add foreign key (PersonalID) references Personal(PersonalID)
 
 --alter table Ordrar
 --add primary key (OrderID,ISBN13)
